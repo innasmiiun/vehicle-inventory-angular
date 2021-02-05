@@ -1,0 +1,27 @@
+<div class="home-page">
+  <div class="hero-section">
+    <div class="hero container-fluid">
+      <div class="hero-search">
+        <p class="hero-search_text">What vehicle are you looking for today ?</p>
+        <div class="hero-search_form">
+          <input type="text" class="hero-search_input" [(ngModel)]="searchString" placeholder="Search" />
+          <button (click)="onSearch()" class="hero-search_button">
+            <img src="../../../../assets/icons/search_white.svg" alt="" style="width: 20px; height: 20px" />
+          </button>
+        </div>
+      </div>
+      <a routerLink="/inventory" class="hero-inventory_link" routerLinkActive="active">
+        <div class="hero-cars">
+          <img src="../../../../assets/icons/car.svg" class="hero-cars_icon" alt="" />
+          <p class="hero-cars_text">All cars</p>
+          <div class="hero-cars_total">{{total}}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="vehicle-map"></div>
+</div>
+
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>

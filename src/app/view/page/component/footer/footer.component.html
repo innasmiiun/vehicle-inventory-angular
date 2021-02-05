@@ -1,0 +1,44 @@
+<div class="footer-background">
+  <div class="footer container-fluid">
+    <div class="footer-items">
+      <div class="footer-items__title">Inventory</div>
+      <ul class="footer-items_list">
+        <a routerLink="/inventory" routerLinkActive="active">
+          <li>New inventory</li>
+        </a>
+      </ul>
+    </div>
+    <div class="footer-items">
+      <div class="footer-items__title">Special</div>
+      <ul class="footer-items_list">
+        <a routerLink="/inventory" routerLinkActive="active">
+          <li>All Specials</li>
+        </a>
+        <a [routerLink]="['/inventory']" [queryParams]="{ end_msrp: '15000' }" routerLinkActive="active">
+          <li>Cars under 15,000</li>
+        </a>
+        <a [routerLink]="['/inventory']" [queryParams]="{ end_msrp: '25000' }" routerLinkActive="active">
+          <li>Cars under 25,000</li>
+        </a>
+      </ul>
+    </div>
+    <div class="footer-items">
+      <div class="footer-items__title">About</div>
+      <ul class="footer-items_list">
+        <li>About us</li>
+      </ul>
+    </div>
+    <div class="footer-items">
+      <div class="footer-items__title">Contact</div>
+      <ul class="footer-items_list">
+        <li>Contact us</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer_social container-fluid">
+    <img src="../../assets/icons/social_networks/fb.png" alt="" />
+    <img src="../../assets/icons/social_networks/tw.png" alt="" />
+    <img src="../../assets/icons/social_networks/yt.png" alt="" />
+    <img src="../../assets/icons/social_networks/gp.png" alt="" />
+  </div>
+</div>

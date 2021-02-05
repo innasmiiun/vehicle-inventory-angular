@@ -1,0 +1,80 @@
+<div class="all_filters">
+  <input type="checkbox" id="filters" class="showFiltersInput" />
+  <label for="filters" class="showFiltersLabel container-fluid" (click)="onCheckedLabel()">{{ labelItem }}</label>
+  <div class="filters_container">
+    <div class="filters_title">Filters</div>
+    <div class="cars-navigation">
+      <div class="cars-total navigation-block">
+        <span
+          ><span class="cars-total_number">{{ total }}</span> Cars found</span
+        >
+      </div>
+      <div class="cars-price navigation-block">
+        Price Range:
+        <app-range-slider
+          [minValue]="minPriceValue"
+          [maxValue]="maxPriceValue"
+          (changedValues)="onPriceRangeChange($event)"
+        >
+        </app-range-slider>
+      </div>
+      <div class="cars-search">
+        <div class="cars-search_form">
+          <input type="text" class="search-form" [(ngModel)]="searchString" placeholder="Search" />
+          <button class="search-button" (click)="onDoSearch()">
+            <img src="../../../../assets/icons/search.svg" alt="" style="width: 20px; height: 20px" />
+            <span>Find</span>
+          </button>
+        </div>
+        <div class="cars-search_options">
+          <div class="cars-count">
+            <select class="form-select" [(ngModel)]="selectedPerPage" (change)="onSelectPerPage()">
+              <option *ngFor="let perPage of perPageList" [value]="perPage.name">{{ perPage.name }}</option>
+            </select>
+          </div>
+          <div class="cars-sort">
+            <select class="form-select" [(ngModel)]="selectedSorting" (change)="onSelectSorting()">
+              <option *ngFor="let sorting of sortingList" [value]="sorting.value">{{ sorting.name }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acc-container">
+      <input id="ac-11" name="accordion-1" checked type="checkbox" class="acc-input" />
+      <label for="ac-11" class="acc-label">Filters </label>
+      <div class="acc-content">
+        <ul class="accordion" *ngIf="filters">
+          <li class="accordion-item" *ngFor="let category of filters.categories; let i = index">
+            <label for="{{ i }}" class="filter">{{ category.categoryName }}</label>
+            <input id="{{ i }}" type="checkbox" class="filter" name="menu" />
+            <ul class="accordion-subElements">
+              <li class="accordion-subElement">
+                <ul class="filters-dropdown">
+                  <li class="filters-dropdown_item" *ngFor="let filter of category.filter_items; let j = index">
+                    <input
+                      type="checkbox"
+                      id="{{ filter.name + j }}"
+                      (change)="onFilterChange($event, filter)"
+                      [checked]="filter.is_checked"
+                    />
+                    <label for="{{ filter.name + j }}" class="filters-dropdown_label"
+                      >{{ filter.name }} ({{ filter.count }} )</label
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="acc-content">
+        <ul class="accordion">
+          <li class="accordion-item">
+            <div class="filter clear" (click)="clearFilters()">Clear Filters</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

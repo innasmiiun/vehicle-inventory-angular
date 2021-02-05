@@ -1,0 +1,40 @@
+.filters-background {
+  display: grid;
+  grid-template-columns: 20% 75%;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  opacity: 0.9;
+}
+
+.vehicle-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-column-gap: 20px;
+}
+
+.vehicle-navigation {
+  padding-top: 130px;
+}
+
+.empty {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media (max-width: 1100px) {
+  .filters-background {
+    grid-template-columns: 25% 70%;
+  }
+}
+@media (max-width: 810px) {
+  .vehicle-navigation {
+    padding-top: 100px;
+  }
+  .filters-background {
+    display: flex;
+    flex-direction: column;
+  }
+  .cards {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,67 @@
+<div class="vehicle-information" *ngIf="vehicle; else emptyState">
+  <div class="vehicle-block container-fluid">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+      <li ngxSlickItem *ngFor="let images of vehicle.externalImages" class="slide">
+        <div class="vehicle-photo">
+          <img class="vehicle_image" src="{{ images}}" alt="" />
+        </div>
+      </li>
+    </ngx-slick-carousel>
+    <div class="vehicle_description">
+      <div class="vehicle-detail_title">
+        <div class="vehicle-model">
+          <p>{{ vehicle.title }}</p>
+        </div>
+        <div class="vehicle_title">Joint Venture Digital: {{ vehicle.location }}</div>
+      </div>
+      <div class="vehicle_information">
+        <ul>
+          <li>
+            VIN:<span class="data"> {{ vehicle.vin }}</span>
+          </li>
+          <li>
+            STOCK #:<span class="data"> {{ vehicle.stockNo }}</span>
+          </li>
+          <li>
+            Engine:<span class="data"> {{ vehicle.engineSize }}</span>
+          </li>
+          <li>
+            Exterior:<span class="data"> {{ vehicle.exteriorColor }}</span>
+          </li>
+          <li>
+            Interior: <span class="data"> {{ vehicle.interiorColor }}</span>
+          </li>
+          <li>
+            MPG:<span class="data">HWY: {{ vehicle.mpg_highway }} | CITY: {{ vehicle.mpg_city }}</span>
+          </li>
+        </ul>
+        <div class="vehicle_price">
+          MSRP:
+          <div class="vehicle_msrp">${{ vehicle.msrp }}</div>
+          INTERNET PRICE:
+          <div class="vehicle_internet-price">${{ vehicle.price }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #emptyState>
+  <div class="vehicle-information">
+    <div class="ph-item container-fluid">
+      <div class="ph-col-12">
+        <div class="ph-picture"></div>
+        <div class="ph-row">
+          <div class="ph-col-6 big"></div>
+          <div class="ph-col-4 empty big"></div>
+          <div class="ph-col-2 big"></div>
+          <div class="ph-col-4"></div>
+          <div class="ph-col-8 empty"></div>
+          <div class="ph-col-6"></div>
+          <div class="ph-col-6 empty"></div>
+          <div class="ph-col-12"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

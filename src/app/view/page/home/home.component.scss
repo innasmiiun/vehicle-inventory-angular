@@ -1,0 +1,107 @@
+agm-map {
+  height: 400px;
+}
+
+.home-page {
+  padding-top: 110px;
+}
+
+.hero {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-row-gap: 40px;
+  justify-content: center;
+
+  &-section {
+    background: url("../../../../assets/images/vw-background.jpg") 100% center no-repeat no-repeat;
+    opacity: 0.9;
+    padding: 150px 0;
+  }
+
+  &-search {
+    background: linear-gradient(#000000, transparent 1px), linear-gradient(90deg, #000000, transparent 1px);
+    background-size: 2px 2px;
+    background-position: center center;
+    padding: 16px 40px;
+    border: 1px solid white;
+
+    &_text {
+      font-weight: bold;
+      font-size: 24px;
+      color: white;
+    }
+
+    &_form {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-column-gap: 10px;
+      justify-content: center;
+
+    }
+
+    &_input {
+      background: transparent;
+      border: none;
+      outline: none;
+      border-bottom: 2px solid #0069d9;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+
+    &_button {
+      background: none;
+      border: none;
+      outline: none;
+    }
+
+  }
+  &-inventory_link {
+    margin: auto;
+  }
+
+  &-cars {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: 1px solid white;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    background: linear-gradient(#000000, transparent 1px), linear-gradient(90deg, #000000, transparent 1px);
+    background-size: 2px 2px;
+    background-position: center center;
+    padding: 10px 60px;
+    &_icon {
+      width: 24px;
+      height: auto;
+      margin: auto;
+    }
+    &_text {
+      margin-bottom: 0;
+    }
+    &_total {
+      position: absolute;
+      left: -15px;
+      top: -15px;
+      width: auto;
+      height: 40px;
+      line-height: 40px;
+      padding: 0px 10px;
+      font-size: 15px;
+      text-align: center;
+      background-color: #0069d9;
+      border-radius: 40%;
+    }
+  }
+}
+
+
+@media (max-width: 810px) {
+  .home-page {
+    padding-top: 69px;
+  }
+}

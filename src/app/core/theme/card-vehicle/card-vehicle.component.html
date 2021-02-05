@@ -1,0 +1,45 @@
+<a [routerLink]="['/vdp', urlWithoutSpaces]">
+  <div class="car">
+    <div class="car-model">
+      <p>{{ title }}</p>
+    </div>
+    <div class="car-block">
+      <div>
+        <img class="car_image" src="{{ externalImages[0] }}" alt="" />
+      </div>
+      <div class="car_description">
+        <div class="car_title">
+          <p>Joint Venture Digital: {{ location }}</p>
+        </div>
+        <div class="car_information">
+          <ul>
+            <li>
+              VIN:<span class="data"> {{ vin }}</span>
+            </li>
+            <li>
+              STOCK #:<span class="data"> {{ stockNo }}</span>
+            </li>
+            <li>
+              Engine:<span class="data"> {{ engineSize }}</span>
+            </li>
+            <li>
+              Exterior:<span class="data"> {{ exteriorColor }}</span>
+            </li>
+            <li>
+              Interior: <span class="data"> {{ interiorColor }}</span>
+            </li>
+            <li>
+              MPG:<span class="data">HWY: {{ mpg_highway }} | CITY: {{ mpg_city }}</span>
+            </li>
+          </ul>
+          <div class="car_price">
+            MSRP:
+            <div class="car_msrp">${{ msrp }}</div>
+            INTERNET PRICE:
+            <div class="car_internet-price">${{ price }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

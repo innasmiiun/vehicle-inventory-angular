@@ -1,0 +1,54 @@
+<div class="vehicle-navigation container-fluid"></div>
+<div class="filters-background container">
+  <div class="vehicle-filters" *ngIf="filters; else emptyStateFilters">
+    <app-card-filters
+      [globalFilters]="globalFilters"
+      [total]="total"
+      [filters]="filters"
+      (filtersChanged)="onFiltersChanged($event)"
+      (searchChanged)="onSearch($event)"
+      (perPageChanged)="onPerPageChanged($event)"
+      (sortingChanged)="onSortingChanged($event)"
+      (minPriceChanged)="onMinPriceChanged($event)"
+      (maxPriceChanged)="onMaxPriceChanged($event)"
+    >
+    </app-card-filters>
+  </div>
+  <div class="cards" *ngIf="items?.length; else emptyState">
+    <div class="vehicle-cards container-fluid">
+      <app-card-vehicle
+        class="vehicle-item"
+        *ngFor="let item of items"
+        [id]="item.id"
+        [externalImages]="item.externalImages"
+        [title]="item.title"
+        [vin]="item.vin"
+        [location]="item.location"
+        [stockNo]="item.stockNo"
+        [engineSize]="item.engineSize"
+        [exteriorColor]="item.exteriorColor"
+        [interiorColor]="item.interiorColor"
+        [mpg_highway]="item.mpg_highway"
+        [mpg_city]="item.mpg_city"
+        [msrp]="item.msrp"
+        [price]="item.price"
+      >
+      </app-card-vehicle>
+    </div>
+    <app-pagination
+      (pageChanged)="onPagesChanged($event)"
+      [total]="total"
+      [page]="page"
+      [pageSize]="pageSize"
+      *ngIf="items?.length && pagesCount > 1"
+    >
+    </app-pagination>
+  </div>
+</div>
+
+<ng-template #emptyState>
+  <div class="empty container-fluid">There are currently no results matching your search.</div></ng-template
+>
+
+<ng-template #emptyStateFilters>
+</ng-template>
